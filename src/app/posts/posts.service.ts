@@ -27,6 +27,9 @@ export class PostsService {
         map((postsData) => {
           return {
             posts: postsData.posts.map((post) => {
+              if (environment.apiUrl.includes('express')) {
+                post.imagePath = post.imagePath.replace('localhost', 'express');
+              }
               return {
                 title: post.title,
                 content: post.content,

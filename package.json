@@ -1,6 +1,6 @@
 {
-  "name": "com.david.tfg",
-  "displayName": "AppMobile",
+  "name": "com.tfgelastest.sut",
+  "displayName": "CordovaApp",
   "version": "1.0.0",
   "description": "A sample Apache Cordova application that responds to the deviceready event.",
   "author": "David Correas",
@@ -34,7 +34,8 @@
     "cordova-browser": "^6.0.0",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
-    "zone.js": "~0.10.2"
+    "zone.js": "~0.10.2",
+    "cordova-plugin-whitelist": "1"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.901.7",
