@@ -1,9 +1,55 @@
-# tfg-elastest-sut
-Aplicación MEAN para realizar los test sobre ella.
+# TFG-ELASTEST-SUT-CORDOVA_APP
+Aplicación móvil hecha con cordova a partir del front hecha con Angular.
 
-## Forma de uso
-### Clonado del proyecto
-Esta aplicación cuenta con submodulos por lo que la forma de clonarlo debe ser:
-```git clone --recurse-submodules https://github.com/DavidCorreas/tfg-elastest-sut.git```
-### Despliegue de la aplicación
-Para desplegar la aplicación situarse en la carpeta raíz del proyecto y ejecutar ```docker-compose up```
+Esta aplicación no es funcional, ya que necesita que en el DNS del dispositivo
+exista el nombre de 'express' y coincida con la ip del servidor NodeJS donde se 
+encuentra la app de la aplicación. 
+Esto quiere decir que está aplicación ha sido creada únicamente para propósitos
+de testing e2e. Ver detalle en la raíz del [TFG-ELASTEST][tfg-elastest].
+
+## Objetivos
+En este repositorios se encuentran los ficheros necesarios para construir 
+una aplicación andorid a partir de un front web hecho con Angular.
+
+## Componentes
+Para que se pueda construir la aplicación android, es necesario la aplicación
+Angular y algunos ficheros de configuración. También se encuentran ficheros
+generados por Cordova.
+
+### Aplicación Angular
+En la raíz del repositorio se encuentra la aplicación Angular tal como está en el
+[repositorio del front web][tfg-elastest-sut-front].
+
+### Ficheros de configuración para Cordova
+Para poder construir la aplicación Cordova, se necesita de unas dependencias y 
+configuraciones extra. Estos ficheros y configuraciones son generados automáticamente
+por Cordova tras crear un proyecto y añadir una plataforma, en este caso Android.
+
+### Aplicación Android
+En la carpeta `platforms/android` se encuentra el proyecto Android, que ha sido generado
+automáticamente por Cordova después de ejecutar los comandos sobre el proyecto:
+
+`ng build --prod --aot`
+
+`cordova build android`
+
+### APK
+Es la aplicación construida a partir del proyecto Android. Originalmnte Cordova guarda
+el apk generado en el directorio `.platforms/android/app/build/outputs/apk/debug`
+pero se ha copiado al directorio `./apk/` para un mejor acceso por otros módulos del TFG.
+
+## Despliegue
+Al ser una aplicación con objetivos de testing, el despliegue en cualquier dispositivo
+no es trivial. Como se ha comentado en la introducción, el dispositivo móvil debe de 
+tener configurado en su DNS local el nombre de 'express' con la dirección ip del servidor
+backend hecho con NodeJS contenido en este [repositorio][tfg-elastest-sut-back].
+
+Se puede desplegar la apliación descargando el apk y instalandolo en un dispositivo
+Android o bien mediante adb:
+
+- Iniciamos el servidor adb y mostramos los dispositivos conectados: `adb devices`
+- Instalamos el apk al dispositivo: `adb -s <dispositivo> install app-debug.apk`
+
+[tfg-elastest]: https://github.com/DavidCorreas/tfg-elastest
+[tfg-elastest-sut-front]: https://github.com/DavidCorreas/tfg-elastest-sut-front.git
+[tfg-elastest-sut-back]: https://github.com/DavidCorreas/tfg-elastest-sut-back.git
