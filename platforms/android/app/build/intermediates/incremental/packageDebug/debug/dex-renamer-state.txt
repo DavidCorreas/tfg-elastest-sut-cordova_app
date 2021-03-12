@@ -1,4 +1,4 @@
-#Fri Sep 04 09:31:05 UTC 2020
+#Fri Mar 12 12:47:06 UTC 2021
 base.0=/mnt/platforms/android/app/build/intermediates/transforms/dexMerger/debug/0
 path.0=classes.dex
 renamed.0=classes.dex
